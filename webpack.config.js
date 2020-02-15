@@ -22,7 +22,8 @@ module.exports = {
     alias: {
       'components': path.resolve(__dirname, './src/components'),
       '@': path.resolve(__dirname, './src')
-    }
+    },
+    extensions: ['.ts', '.tsx', '.js']
   },
   output: {
     filename: 'bundle.js',
@@ -57,6 +58,12 @@ module.exports = {
         exclude: /node_modules/,
         include: path.resolve(__dirname, './src'),
         use: ['babel-loader'],
+      },
+      {
+        test: /\.(ts|tsx)$/,
+        exclude: /node_modules/,
+        include: path.resolve(__dirname, './src'),
+        use: ['awesome-typescript-loader'],
       }
     ]
   },
